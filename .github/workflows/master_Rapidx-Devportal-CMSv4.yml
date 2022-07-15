@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_be219f0c4ced4d5286e1489e0a46ab30 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_2e829603dac24d5aa84a851d803b7d34 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_35697e70aae64c2789a9aec329128e65 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_be219f0c4ced4d5286e1489e0a46ab30 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'Rapidx-Devportal-CMSv4'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b474baf80c924811917ef74687befe8c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_be219f0c4ced4d5286e1489e0a46ab30 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d5ea0d13d6ad48d6a2411156bb8d1c8a }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}'
