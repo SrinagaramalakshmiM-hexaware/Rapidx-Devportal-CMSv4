@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/rapidx-devportal:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'Rapidx-Devportal-CMSv4'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d5ea0d13d6ad48d6a2411156bb8d1c8a }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/ramalakshmimoyilla/rapidx-devportal:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_612d091050ad4ff798d3b5283ad49780 }}/rapidx-devportal:${{ github.sha }}'
